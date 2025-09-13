@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hayat Ai</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* For custom scrollbars */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #1f2937; /* bg-gray-800 */
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #4b5563; /* bg-gray-600 */
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #6b7280; /* bg-gray-500 */
+      }
+      #landing-page {
+        transition: opacity 0.7s ease-out;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.19.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-gray-900 text-white">
+    <div id="landing-page" class="fixed inset-0 bg-gray-900 z-50 flex flex-col items-center justify-center text-center p-8">
+      <div class="max-w-2xl">
+        <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-4">
+          Welcome to <span class="text-blue-500">Hayat Ai</span>
+        </h1>
+        <p class="text-lg md:text-xl text-gray-300 mb-8">
+          Create anything with the power of AI. Generate images, videos, entire web applications, or just have a chat.
+        </p>
+        <button id="enter-app-btn" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-blue-700 transition-transform transform hover:scale-105">
+          Get Started
+        </button>
+      </div>
+    </div>
+    <div id="root" style="display: none;"></div>
+    <script type="module" src="/index.tsx"></script>
+    <script>
+      document.getElementById('enter-app-btn').addEventListener('click', () => {
+        const landingPage = document.getElementById('landing-page');
+        const rootElement = document.getElementById('root');
+        landingPage.style.opacity = '0';
+        setTimeout(() => {
+          landingPage.style.display = 'none';
+          rootElement.style.display = 'block';
+        }, 700); // Match duration of opacity transition
+      });
+    </script>
+  </body>
+</html>
